@@ -1,0 +1,13 @@
+<%= form_with(model: task, local: true) do |f| %>
+    <div>
+        <%= f.label :content, "タスク"%>
+        <%= f.text_field :content %>
+    </div>
+    <div>
+        <%= f.label :status, "ステータス"%>
+        <%= f.text_field :status %>
+    </div>
+    
+    <%= f.submit "投稿" %>
+
+<%end%>
