@@ -1,0 +1,15 @@
+<ul>
+    <%tasks.each do |task|%>
+        <li>
+            <div>
+                <div>
+                    <%= task.user.name%> <span>posted at <%= task.created_at %></span>
+                </div>
+                <div>
+                    <p>task: <%= task.content %></p>
+                    <p>status <%= task.status%></p>
+                </div>
+            </div>
+        </li>
+    <%end%>
+</ul>

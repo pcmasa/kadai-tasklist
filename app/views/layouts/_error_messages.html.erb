@@ -1,0 +1,9 @@
+<% if model.errors.any? %>
+    <div id="error_explanation">
+        <ul>
+            <% model.errors.full_messages.each do |task| %>
+                <li><%= model %></li>
+            <% end %>
+        </ul>
+    </div>
+<% end %>

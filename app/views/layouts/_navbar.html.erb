@@ -1,0 +1,15 @@
+<div>
+  <ul>
+    <% if logged_in? %>
+        <p>ログイン中のユーザ：<%= current_user.name %></p>
+        <ul>
+          <li><%= link_to "My tasks", tasks_path %></li>
+          <li><%= link_to "Logout", logout_path, method: :delete %></li>
+        </ul>
+      </li>
+    <% else %>
+      <li><%= link_to 'Signup', signup_path %></li>
+      <li><%= link_to 'Login', login_path %></li>
+    <% end %>
+  </ul>
+</div>
