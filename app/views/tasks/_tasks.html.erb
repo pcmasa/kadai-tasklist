@@ -9,6 +9,9 @@
                     <p>task: <%= task.content %></p>
                     <p>status <%= task.status%></p>
                 </div>
+                <div>
+                    <%=link_to "詳細", task_path(task) %>
+                </div>
             </div>
         </li>
     <%end%>
