@@ -1,15 +1,17 @@
 class TasksController < ApplicationController
     before_action :require_user_logged_in
+    before_action :correct_user, only: [:destroy]
     
     def index
-        if logged_in?
             @task = current_user.tasks.build
             @tasks = current_user.tasks.order(id: :desc)
-        end
     end
     
     def show 
         @task = Task.find(params[:id])
+        unless @task.user == current_user
+            redirect_to root_url 
+        end
     end
     
     def new
@@ -58,8 +60,14 @@ class TasksController < ApplicationController
     private
     
     def task_params
-       params.require(:task).permit(:content,:status)
+        params.require(:task).permit(:content,:status)
     end
     
+    def correct_user
+        @task = current_user.tasks.find_by(id: params[:id])
+        unless @task
+            redirect_to root_url
+        end
+    end
     
 end
